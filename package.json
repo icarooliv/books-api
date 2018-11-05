@@ -1,0 +1,50 @@
+{
+  "name": "books-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint:fix && npm run test-unit && npm run test-integration && npm run test-contract",
+    "start-test": "NODE_ENV=test nodemon --exec babel-node --presets env,stage-2 index.js",
+    "start-dev": "NODE_ENV=dev nodemon --exec babel-node --presets env,stage-2 index.js",
+    "start-prod": "NODE_ENV=prod nodemon --exec babel-node --presets env,stage-2 index.js",
+    "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.js --exit",
+    "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js --exit",
+    "test-contract": "NODE_ENV=test mocha --opts test/contracts/mocha.opts test/contracts/contracts/*.js --exit",
+    "lint": "eslint \"**/*.js\"",
+    "lint:fix": "eslint '**/*.js' --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "joi": "^14.0.4",
+    "joi-assert": "0.0.3",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.5",
+    "supertest": "^3.3.0",
+    "testdouble": "^3.8.2"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "http-status": "^1.2.0",
+    "jwt-simple": "^0.5.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.6.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.41.0",
+    "sqlite3": "^4.0.3"
+  }
+}
